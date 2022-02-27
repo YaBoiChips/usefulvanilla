@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "usefulvanilla.refmap.json",
   "mixins": [
+    "access.StairBlockAccess",
+    "common.MixinBottleItem"
   ],
   "client": [
   ],
