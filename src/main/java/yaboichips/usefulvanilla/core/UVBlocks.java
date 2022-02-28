@@ -13,11 +13,11 @@ import yaboichips.usefulvanilla.util.UVRegistrar;
 public class UVBlocks {
     public static final UVRegistrar<Block> REGISTRAR = new UVRegistrar<>(ForgeRegistries.BLOCKS);
 
-    public static final Block COPPER_HOPPER = REGISTRAR.add("copper_hopper", new CopperHopper(BlockBehaviour.Properties.of(Material.METAL)));
+    public static final Block COPPER_HOPPER = REGISTRAR.add("copper_hopper", new CopperHopper(BlockBehaviour.Properties.copy(Blocks.HOPPER).noOcclusion()));
     public static final Block MASON_OVEN = REGISTRAR.add("mason_oven", new MasonOven(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE)));
 
     public static final Block COPPER_CHAIN = REGISTRAR.add("copper_chain", new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
-    public static final Block AMETHYST_LANTERN = REGISTRAR.add("amethyst_lantern", new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN)));
+    public static final Block AMETHYST_LANTERN = REGISTRAR.add("amethyst_lantern", new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
     public static final Block AMETHYST_END_ROD = REGISTRAR.add("amethyst_end_rod", new EndRodBlock(BlockBehaviour.Properties.of(Material.AMETHYST).instabreak().color(MaterialColor.COLOR_PURPLE)));
 
     public static final Block TUFF_SLAB = REGISTRAR.add("tuff_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));

@@ -61,7 +61,8 @@ public class UsefulVanilla {
     }
 
     private void doClientThings(final FMLClientSetupEvent event){
-        UVCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+        System.out.println("doing client things");
+        UVCutoutRenders.renderCutOuts();
         MenuScreens.register(UVMenus.MASON_OVEN, MasonScreen::new);
     }
 

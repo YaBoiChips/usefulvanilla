@@ -13,7 +13,7 @@ public class UVItems {
     public static final CreativeModeTab TAB = new CreativeModeTab(UsefulVanilla.MOD_ID) {
         @Override
         public ItemStack makeIcon() {
-            return Items.APPLE.getDefaultInstance();
+            return UVItems.AMETHYST_LANTERN.getDefaultInstance();
         }
     };
     public static final Item COPPER_HOPPER = createBlockItem(UVBlocks.COPPER_HOPPER);
@@ -34,11 +34,9 @@ public class UVItems {
     public static final Item TALLOW = createItem("tallow");
     public static final Item LLAMA_SPIT = createItem("llama_spit");
 
-
     public static final Item AMETHYST_LANTERN = createBlockItem(UVBlocks.AMETHYST_LANTERN);
     public static final Item AMETHYST_END_ROD = createBlockItem(UVBlocks.AMETHYST_END_ROD);
     public static final Item COPPER_CHAIN = createBlockItem(UVBlocks.COPPER_CHAIN);
-
 
     public static Item createBlockItem(Block block){
         return REGISTRAR.add(block.getRegistryName().getPath(), new BlockItem(block, new Item.Properties().tab(TAB)));

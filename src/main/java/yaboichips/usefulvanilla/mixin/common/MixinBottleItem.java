@@ -1,6 +1,8 @@
 package yaboichips.usefulvanilla.mixin.common;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -50,6 +52,7 @@ public class MixinBottleItem {
 
     private ItemStack turnBottleIntoPot(ItemStack stack, Player player, ItemStack result) {
         player.awardStat(Stats.ITEM_USED.get(player.getMainHandItem().getItem()));
+        player.level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1, 1);
         return ItemUtils.createFilledResult(stack, player, result);
     }
 
