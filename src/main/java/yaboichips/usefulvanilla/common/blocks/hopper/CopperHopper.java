@@ -1,4 +1,4 @@
-package yaboichips.usefulvanilla.common.blocks;
+package yaboichips.usefulvanilla.common.blocks.hopper;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import yaboichips.usefulvanilla.common.te.CopperHopperTE;
 import yaboichips.usefulvanilla.core.UVTileEntities;
 
 public class CopperHopper extends BaseEntityBlock {

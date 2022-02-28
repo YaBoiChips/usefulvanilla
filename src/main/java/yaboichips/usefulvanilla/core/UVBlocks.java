@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.ForgeRegistries;
-import yaboichips.usefulvanilla.common.blocks.CopperHopper;
+import yaboichips.usefulvanilla.common.blocks.hopper.CopperHopper;
 import yaboichips.usefulvanilla.common.blocks.mason.MasonOven;
 import yaboichips.usefulvanilla.mixin.access.StairBlockAccess;
 import yaboichips.usefulvanilla.util.UVRegistrar;

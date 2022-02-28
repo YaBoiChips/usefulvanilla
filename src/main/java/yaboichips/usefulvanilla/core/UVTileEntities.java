@@ -6,7 +6,7 @@ import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.ForgeRegistries;
-import yaboichips.usefulvanilla.common.te.CopperHopperTE;
+import yaboichips.usefulvanilla.common.blocks.hopper.CopperHopperTE;
 import yaboichips.usefulvanilla.common.blocks.mason.MasonOvenTE;
 import yaboichips.usefulvanilla.util.UVRegistrar;
 

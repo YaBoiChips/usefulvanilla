@@ -1,4 +1,4 @@
-package yaboichips.usefulvanilla.common.te;
+package yaboichips.usefulvanilla.common.blocks.hopper;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,16 +15,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.Hopper;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import yaboichips.usefulvanilla.common.blocks.CopperHopper;
 import yaboichips.usefulvanilla.core.UVTileEntities;
 
 import java.util.List;
