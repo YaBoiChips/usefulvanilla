@@ -4,8 +4,12 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.ForgeRegistries;
 import yaboichips.usefulvanilla.UsefulVanilla;
+import yaboichips.usefulvanilla.mixin.access.StairBlockAccess;
 import yaboichips.usefulvanilla.util.UVRegistrar;
 
 public class UVItems {
@@ -18,6 +22,33 @@ public class UVItems {
     };
     public static final Item COPPER_HOPPER = createBlockItem(UVBlocks.COPPER_HOPPER);
     public static final Item MASON_OVEN = createBlockItem(UVBlocks.MASON_OVEN);
+
+    public static final Item TUFF_SLAB = createBlockItem(UVBlocks.TUFF_SLAB);
+    public static final Item TUFF_STAIRS = createBlockItem(UVBlocks.TUFF_STAIRS);
+    public static final Item TUFF_WALL = createBlockItem(UVBlocks.TUFF_WALL);
+    public static final Item POLISHED_TUFF = createBlockItem(UVBlocks.POLISHED_TUFF);
+    public static final Item POLISHED_TUFF_SLAB = createBlockItem(UVBlocks.POLISHED_TUFF_SLAB);
+    public static final Item POLISHED_TUFF_STAIRS = createBlockItem(UVBlocks.POLISHED_TUFF_STAIRS);
+    public static final Item POLISHED_TUFF_WALL = createBlockItem(UVBlocks.POLISHED_TUFF_WALL);
+    public static final Item TUFF_BRICKS = createBlockItem(UVBlocks.TUFF_BRICKS);
+    public static final Item TUFF_BRICK_SLAB = createBlockItem(UVBlocks.TUFF_BRICK_SLAB);
+    public static final Item TUFF_BRICK_STAIRS = createBlockItem(UVBlocks.TUFF_BRICK_STAIRS);
+    public static final Item TUFF_BRICK_WALL = createBlockItem(UVBlocks.TUFF_BRICK_WALL);
+
+
+    public static final Item CALCITE_SLAB = createBlockItem(UVBlocks.CALCITE_SLAB);
+    public static final Item CALCITE_STAIRS = createBlockItem(UVBlocks.CALCITE_STAIRS);
+    public static final Item CALCITE_WALL = createBlockItem(UVBlocks.CALCITE_WALL);
+    public static final Item POLISHED_CALCITE = createBlockItem(UVBlocks.POLISHED_CALCITE);
+    public static final Item POLISHED_CALCITE_SLAB = createBlockItem(UVBlocks.POLISHED_CALCITE_SLAB);
+    public static final Item POLISHED_CALCITE_STAIRS = createBlockItem(UVBlocks.POLISHED_CALCITE_STAIRS);
+    public static final Item POLISHED_CALCITE_WALL = createBlockItem(UVBlocks.POLISHED_CALCITE_WALL);
+
+    public static final Item CALCITE_BRICKS = createBlockItem(UVBlocks.CALCITE_BRICKS);
+    public static final Item CALCITE_BRICK_SLAB = createBlockItem(UVBlocks.CALCITE_BRICK_SLAB);
+    public static final Item CALCITE_BRICK_STAIRS = createBlockItem(UVBlocks.CALCITE_BRICK_STAIRS);
+    public static final Item CALCITE_BRICK_WALL = createBlockItem(UVBlocks.CALCITE_BRICK_WALL);
+
 
     public static final Item COPPER_BOOTS = createArmorItem("copper_boots", UVArmors.COPPER, EquipmentSlot.FEET);
     public static final Item COPPER_LEGGINGS = createArmorItem("copper_leggings", UVArmors.COPPER, EquipmentSlot.LEGS);

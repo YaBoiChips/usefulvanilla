@@ -41,7 +41,7 @@ public class MixinBottleItem {
             BlockPos blockpos = ((BlockHitResult) hitresult).getBlockPos();
             BlockState state = world.getBlockState(blockpos);
             if (state == Blocks.CRYING_OBSIDIAN.defaultBlockState()){
-                turnBottleIntoPot(player.getMainHandItem(), player, PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.MUNDANE));
+                turnBottleIntoPot(player.getMainHandItem(), player, PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD));
                 int i = world.random.nextInt(3);
                 if (i == 2){
                     world.setBlock(blockpos, Blocks.OBSIDIAN.defaultBlockState(), 2);

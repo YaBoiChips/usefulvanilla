@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "usefulvanilla:tuff_wall",
+    "usefulvanilla:polished_tuff_wall",
+    "usefulvanilla:tuff_brick_wall",
+    "usefulvanilla:calcite_wall",
+    "usefulvanilla:polished_calcite_wall",
+    "usefulvanilla:calcite_brick_wall"
+  ]
+}

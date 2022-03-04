@@ -15,7 +15,8 @@ public class UVCutoutRenders {
     public static void renderCutOuts(){
         Block[] blocks = {
                 UVBlocks.AMETHYST_LANTERN,
-                UVBlocks.COPPER_HOPPER
+                UVBlocks.COPPER_HOPPER,
+                UVBlocks.COPPER_CHAIN
         };
 
         Arrays.stream(blocks).forEach((block) -> ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutoutMipped()));

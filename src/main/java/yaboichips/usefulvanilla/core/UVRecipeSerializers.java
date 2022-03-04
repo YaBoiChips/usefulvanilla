@@ -10,6 +10,6 @@ public class UVRecipeSerializers {
 
     public static final UVRegistrar<RecipeSerializer<?>> REGISTRAR = new UVRegistrar<>(ForgeRegistries.RECIPE_SERIALIZERS);
 
-    public static final RecipeSerializer<MasonRecipe> MASON = REGISTRAR.add("building", new SimpleCookingSerializer<>(MasonRecipe::new, 100));
+    public static final RecipeSerializer<MasonRecipe> MASON = REGISTRAR.add("mason", new SimpleCookingSerializer<>(MasonRecipe::new, 100));
 
 }

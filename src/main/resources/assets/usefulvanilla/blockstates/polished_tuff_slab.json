@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "usefulvanilla:block/polished_tuff_slab"
+    },
+    "type=double": {
+      "model": "usefulvanilla:block/polished_tuff"
+    },
+    "type=top": {
+      "model": "usefulvanilla:block/polished_tuff_slab_top"
+    }
+  }
+}

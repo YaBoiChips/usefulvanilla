@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "usefulvanilla:block/copper_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "usefulvanilla:block/copper_chain"
+    },
+    "axis=z": {
+      "model": "usefulvanilla:block/copper_chain",
+      "x": 90
+    }
+  }
+}

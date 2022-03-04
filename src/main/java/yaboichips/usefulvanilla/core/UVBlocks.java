@@ -22,19 +22,26 @@ public class UVBlocks {
 
     public static final Block TUFF_SLAB = REGISTRAR.add("tuff_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block TUFF_STAIRS = REGISTRAR.add("tuff_stairs", StairBlockAccess.create(Blocks.TUFF.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final Block TUFF_WALL = REGISTRAR.add("tuff_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block POLISHED_TUFF = REGISTRAR.add("polished_tuff", new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block POLISHED_TUFF_SLAB = REGISTRAR.add("polished_tuff_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block POLISHED_TUFF_STAIRS = REGISTRAR.add("polished_tuff_stairs", StairBlockAccess.create(POLISHED_TUFF.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final Block POLISHED_TUFF_WALL = REGISTRAR.add("polished_tuff_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block TUFF_BRICKS = REGISTRAR.add("tuff_brick", new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block TUFF_BRICK_SLAB = REGISTRAR.add("tuff_brick_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final Block TUFF_BRICK_STAIRS = REGISTRAR.add("tuff_brick_stairs", StairBlockAccess.create(TUFF_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final Block TUFF_BRICK_WALL = REGISTRAR.add("tuff_brick_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+
 
     public static final Block CALCITE_SLAB = REGISTRAR.add("calcite_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block CALCITE_STAIRS = REGISTRAR.add("calcite_stairs", StairBlockAccess.create(Blocks.CALCITE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+    public static final Block CALCITE_WALL = REGISTRAR.add("calcite_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block POLISHED_CALCITE = REGISTRAR.add("polished_calcite", new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block POLISHED_CALCITE_SLAB = REGISTRAR.add("polished_calcite_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block POLISHED_CALCITE_STAIRS = REGISTRAR.add("polished_calcite_stairs", StairBlockAccess.create(POLISHED_CALCITE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+    public static final Block POLISHED_CALCITE_WALL = REGISTRAR.add("polished_calcite_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block CALCITE_BRICKS = REGISTRAR.add("calcite_brick", new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block CALCITE_BRICK_SLAB = REGISTRAR.add("calcite_brick_slab", new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final Block CALCITE_BRICK_STAIRS = REGISTRAR.add("calcite_brick_stairs", StairBlockAccess.create(CALCITE_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+    public static final Block CALCITE_BRICK_WALL = REGISTRAR.add("calcite_brick_wall", new WallBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
 }
