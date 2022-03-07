@@ -33,6 +33,6 @@ public class MasonOven extends AbstractFurnaceBlock {
 
     @javax.annotation.Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createFurnaceTicker(level, type, UVTileEntities.MASON_OVEN);
+        return createFurnaceTicker(level, type, UVTileEntities.MASON_OVEN.get());
     }
 }

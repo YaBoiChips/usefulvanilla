@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "usefulvanilla.refmap.json",
   "mixins": [
+    "access.BoatEntityAccess",
     "access.StairBlockAccess",
     "common.MixinBottleItem"
   ],

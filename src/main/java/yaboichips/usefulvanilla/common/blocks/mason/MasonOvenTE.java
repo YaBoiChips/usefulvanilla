@@ -14,7 +14,7 @@ import yaboichips.usefulvanilla.core.UVTileEntities;
 
 public class MasonOvenTE extends AbstractFurnaceBlockEntity {
     public MasonOvenTE(BlockPos pos, BlockState state) {
-        super(UVTileEntities.MASON_OVEN, pos, state, UVRecipeTypes.MASON);
+        super(UVTileEntities.MASON_OVEN.get(), pos, state, UVRecipeTypes.MASON);
     }
 
     @Override

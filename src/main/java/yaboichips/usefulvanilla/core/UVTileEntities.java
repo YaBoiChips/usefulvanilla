@@ -5,20 +5,17 @@ import net.minecraft.Util;
 import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+import yaboichips.usefulvanilla.UsefulVanilla;
 import yaboichips.usefulvanilla.common.blocks.hopper.CopperHopperTE;
 import yaboichips.usefulvanilla.common.blocks.mason.MasonOvenTE;
-import yaboichips.usefulvanilla.util.UVRegistrar;
 
 public class UVTileEntities {
-    public static final UVRegistrar<BlockEntityType<?>> REGISTRAR = new UVRegistrar<>(ForgeRegistries.BLOCK_ENTITIES);
+    public static final DeferredRegister<BlockEntityType<?>> REGISTRAR =  DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, UsefulVanilla.MOD_ID);
 
-    public static final BlockEntityType<CopperHopperTE> COPPER_HOPPER = register("copper_hopper", BlockEntityType.Builder.of(CopperHopperTE::new, UVBlocks.COPPER_HOPPER));
-    public static final BlockEntityType<MasonOvenTE> MASON_OVEN = register("mason_oven", BlockEntityType.Builder.of(MasonOvenTE::new, UVBlocks.MASON_OVEN));
+    public static final RegistryObject<BlockEntityType<CopperHopperTE>> COPPER_HOPPER = REGISTRAR.register("copper_hopper", () -> BlockEntityType.Builder.of(CopperHopperTE::new, UVBlocks.COPPER_HOPPER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MasonOvenTE>> MASON_OVEN = REGISTRAR.register("mason_oven", () -> BlockEntityType.Builder.of(MasonOvenTE::new, UVBlocks.MASON_OVEN.get()).build(null));
 
-    private static <T extends BlockEntity> BlockEntityType<T> register(String key, BlockEntityType.Builder<T> builder) {
-        Type<?> type = Util.fetchChoiceType(References.BLOCK_ENTITY, key);
-        BlockEntityType<T> blockEntityType = builder.build(type);
-        return REGISTRAR.add(key, blockEntityType);
-    }
 }

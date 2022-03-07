@@ -1,0 +1,9 @@
+{
+  "type": "usefulvanilla:mason",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": "minecraft:glass",
+  "experience": 0.1,
+  "cookingtime": 50
+}

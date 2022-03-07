@@ -1,21 +1,26 @@
 package yaboichips.usefulvanilla;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.gui.screens.inventory.BlastFurnaceScreen;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -32,8 +37,10 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import yaboichips.usefulvanilla.client.UVCutoutRenders;
+import yaboichips.usefulvanilla.client.renderers.TurtleBoatRenderer;
+import yaboichips.usefulvanilla.client.renderers.UVCutoutRenders;
 import yaboichips.usefulvanilla.common.blocks.mason.MasonScreen;
+import yaboichips.usefulvanilla.common.entities.TurtleBoat;
 import yaboichips.usefulvanilla.core.*;
 
 import java.util.stream.Collectors;
@@ -52,18 +59,24 @@ public class UsefulVanilla {
         bus.addListener(this::enqueueIMC);
         bus.addListener(this::processIMC);
         bus.addListener(this::doClientThings);
-        UVBlocks.REGISTRAR.initialize();
-        UVItems.REGISTRAR.initialize();
-        UVTileEntities.REGISTRAR.initialize();
+        bus.addListener(this::registerRenderers);
+        UVBlocks.REGISTRAR.register(bus);
+        UVItems.REGISTRAR.register(bus);
+        UVEntities.REGISTRAR.register(bus);
+        UVTileEntities.REGISTRAR.register(bus);
         UVMenus.REGISTRAR.initialize();
         UVRecipeSerializers.REGISTRAR.initialize();
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void doClientThings(final FMLClientSetupEvent event){
+    private void doClientThings(final FMLClientSetupEvent event) {
         System.out.println("doing client things");
         UVCutoutRenders.renderCutOuts();
         MenuScreens.register(UVMenus.MASON_OVEN, MasonScreen::new);
+    }
+
+    public void registerRenderers(EntityRenderersEvent.RegisterRenderers e){
+        e.registerEntityRenderer(UVEntities.TURTLE_BOAT.get(), TurtleBoatRenderer::new);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -85,10 +98,10 @@ public class UsefulVanilla {
     }
 
     @SubscribeEvent
-    public void doNightVision(LivingEntityUseItemEvent.Finish event){
+    public void doNightVision(LivingEntityUseItemEvent.Finish event) {
         if (event.getEntityLiving() instanceof Player player) {
-            if (event.getResultStack().getItem() == Items.GLOW_BERRIES){
-                if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == UVItems.COPPER_HELMET && !player.hasEffect(MobEffects.NIGHT_VISION)){
+            if (event.getResultStack().getItem() == Items.GLOW_BERRIES) {
+                if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == UVItems.COPPER_HELMET.get() && !player.hasEffect(MobEffects.NIGHT_VISION)) {
                     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 1000, 1, false, false));
                     player.level.playSound(player, player.blockPosition(), SoundEvents.BEACON_POWER_SELECT, SoundSource.NEUTRAL, 1, 1);
                 }
@@ -97,13 +110,24 @@ public class UsefulVanilla {
     }
 
     @SubscribeEvent
-    public void doLlamaSpit(PlayerInteractEvent.EntityInteract event){
+    public void doLlamaSpit(PlayerInteractEvent.EntityInteract event) {
         Player player = event.getPlayer();
-        if (event.getTarget() instanceof Llama){
+        if (event.getTarget() instanceof Llama) {
             ItemStack stack = player.getMainHandItem();
-            if (stack.getItem() == Items.GLASS_BOTTLE){
-                turnBottleIntoPot(stack, player, UVItems.LLAMA_SPIT.getDefaultInstance());
+            if (stack.getItem() == Items.GLASS_BOTTLE) {
+                turnBottleIntoPot(stack, player, UVItems.LLAMA_SPIT.get().getDefaultInstance());
                 player.level.playSound(player, player.blockPosition(), SoundEvents.LLAMA_SPIT, SoundSource.NEUTRAL, 0.5F, 0.5F);
+            }
+        }
+        if (event.getTarget() instanceof Boat boat) {
+            ItemStack stack = player.getMainHandItem();
+            if (stack.getItem() == Items.SCUTE) {
+                Level world = boat.level;
+                TurtleBoat turtleBoat = new TurtleBoat(world, boat.getX(), boat.getY(), boat.getZ());
+                turtleBoat.setYRot(boat.getYRot());
+                world.addFreshEntity(turtleBoat);
+                boat.remove(Entity.RemovalReason.DISCARDED);
+                stack.shrink(1);
             }
         }
     }
@@ -111,6 +135,10 @@ public class UsefulVanilla {
     private ItemStack turnBottleIntoPot(ItemStack stack, Player player, ItemStack result) {
         player.awardStat(Stats.ITEM_USED.get(player.getMainHandItem().getItem()));
         return ItemUtils.createFilledResult(stack, player, result);
+    }
+
+    public static ResourceLocation createLocation(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 
     /*
@@ -122,5 +150,13 @@ public class UsefulVanilla {
     public void onServerStarting(ServerStartingEvent event) {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
+    }
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void registerBlocks(final RegistryEvent.Register<Item> event) {
+            UVRecipeTypes.MASON = RecipeType.register("mason");
+        }
     }
 }

@@ -33,7 +33,7 @@ public class CopperHopperTE extends BlockEntity implements Hopper, Container {
     private LazyOptional<IItemHandler> inventoryCap = LazyOptional.of(() -> inventory);
 
     public CopperHopperTE(BlockPos pos, BlockState state) {
-        super(UVTileEntities.COPPER_HOPPER, pos, state);
+        super(UVTileEntities.COPPER_HOPPER.get(), pos, state);
     }
 
     public CopperHopperTE(BlockEntityType<CopperHopperTE> t, BlockPos pos, BlockState state) {

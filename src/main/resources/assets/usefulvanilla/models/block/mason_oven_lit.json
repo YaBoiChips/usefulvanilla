@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "usefulvanilla:block/mason_oven_top_lit",
+    "front": "usefulvanilla:block/mason_oven_front_lit",
+    "side": "usefulvanilla:block/mason_oven_side"
+  }
+}

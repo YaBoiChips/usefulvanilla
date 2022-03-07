@@ -4,7 +4,7 @@
       "model": "usefulvanilla:block/tuff_slab"
     },
     "type=double": {
-      "model": "usefulvanilla:block/tuff"
+      "model": "minecraft:block/tuff"
     },
     "type=top": {
       "model": "usefulvanilla:block/tuff_slab_top"

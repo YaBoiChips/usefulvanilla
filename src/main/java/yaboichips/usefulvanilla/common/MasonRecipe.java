@@ -15,7 +15,7 @@ public class MasonRecipe extends AbstractCookingRecipe {
     }
 
     public ItemStack getToastSymbol() {
-        return new ItemStack(UVBlocks.MASON_OVEN);
+        return new ItemStack(UVBlocks.MASON_OVEN.get());
     }
 
     public RecipeSerializer<?> getSerializer() {

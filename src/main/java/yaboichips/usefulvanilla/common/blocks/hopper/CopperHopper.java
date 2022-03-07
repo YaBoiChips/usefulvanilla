@@ -66,6 +66,6 @@ public class CopperHopper extends BaseEntityBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, UVTileEntities.COPPER_HOPPER, world.isClientSide ? CopperHopperTE::clientTick : CopperHopperTE::serverTick);
+        return createTickerHelper(type, UVTileEntities.COPPER_HOPPER.get(), world.isClientSide ? CopperHopperTE::clientTick : CopperHopperTE::serverTick);
     }
 }
