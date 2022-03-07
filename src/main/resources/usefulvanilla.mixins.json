@@ -10,6 +10,7 @@
     "common.MixinBottleItem"
   ],
   "client": [
+    "common.MixinEntityRenderers"
   ],
   "injectors": {
     "defaultRequire": 1

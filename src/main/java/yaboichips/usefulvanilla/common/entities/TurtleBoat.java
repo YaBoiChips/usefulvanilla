@@ -1,24 +1,47 @@
 package yaboichips.usefulvanilla.common.entities;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import yaboichips.usefulvanilla.core.UVEntities;
+import yaboichips.usefulvanilla.core.UVItems;
 
 public class TurtleBoat extends Boat {
-    public TurtleBoat(EntityType<? extends TurtleBoat> type, Level world) {
-        super(type, world);
-    }
+
+    private static final EntityDataAccessor<Integer> BOAT_TYPE = SynchedEntityData.defineId(TurtleBoat.class, EntityDataSerializers.INT);
 
     public TurtleBoat(Level world, double x, double y, double z) {
         this(UVEntities.TURTLE_BOAT.get(), world);
         this.setPos(x, y, z);
+        this.setDeltaMovement(Vec3.ZERO);
         this.xo = x;
         this.yo = y;
         this.zo = z;
+    }
+
+    public TurtleBoat(EntityType<? extends Boat> boatEntityType, Level worldType) {
+        super(boatEntityType, worldType);
+    }
+
+    @Override
+    public Item getDropItem() {
+        return switch (this.getModBoatType()) {
+            default -> UVItems.OAK_TURTLE_BOAT.get();
+            case BIRCH_TURTLE -> UVItems.BIRCH_TURTLE_BOAT.get();
+            case ACACIA_TURTLE -> UVItems.ACACIA_TURTLE_BOAT.get();
+            case JUNGLE_TURTLE -> UVItems.JUNGLE_TURTLE_BOAT.get();
+            case SPRUCE_TURTLE -> UVItems.SPRUCE_TURTLE_BOAT.get();
+            case DARK_OAK_TURTLE -> UVItems.DARK_OAK_TURTLE_BOAT.get();
+        };
     }
 
     @Override
@@ -51,9 +74,36 @@ public class TurtleBoat extends Boat {
         }
     }
 
+    public ModType getModBoatType() {
+        return ModType.byId(this.entityData.get(BOAT_TYPE));
+    }
+
+    public void setModBoatType(ModType boatType) {
+        this.entityData.set(BOAT_TYPE, boatType.ordinal());
+    }
+
     @Override
     public Packet<?> getAddEntityPacket() {
         return new ClientboundAddEntityPacket(this);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(BOAT_TYPE, ModType.OAK_TURTLE.ordinal());
+    }
+
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag compound) {
+        compound.putString("Type", this.getModBoatType().getName());
+    }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag compound) {
+        if (compound.contains("Type", 8)) {
+            this.setModBoatType(ModType.getTypeFromString(compound.getString("Type")));
+        }
     }
 
     @Override

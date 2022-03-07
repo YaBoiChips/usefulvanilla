@@ -1,6 +1,8 @@
 package yaboichips.usefulvanilla.core;
 
+import ca.weblite.objc.Proxy;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -8,7 +10,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import yaboichips.usefulvanilla.UsefulVanilla;
+import yaboichips.usefulvanilla.common.entities.TurtleBoat;
 import yaboichips.usefulvanilla.common.items.ThrowableDragonsBreath;
+import yaboichips.usefulvanilla.common.items.TurtleBoatItem;
+
+import static yaboichips.usefulvanilla.common.entities.TurtleBoat.ModType.*;
 
 public class UVItems {
     public static final DeferredRegister<Item> REGISTRAR = DeferredRegister.create(ForgeRegistries.ITEMS, UsefulVanilla.MOD_ID);
@@ -67,6 +73,12 @@ public class UVItems {
     public static final RegistryObject<Item> AMETHYST_LANTERN = createBlockItem("amethyst_lantern", UVBlocks.AMETHYST_LANTERN);
     public static final RegistryObject<Item> AMETHYST_END_ROD = createBlockItem("amethyst_end_rod", UVBlocks.AMETHYST_END_ROD);
     public static final RegistryObject<Item> COPPER_CHAIN = createBlockItem("copper_chain", UVBlocks.COPPER_CHAIN);
+    public static final RegistryObject<Item> OAK_TURTLE_BOAT = createBoatItem(OAK_TURTLE, "oak_turtle_boat");
+    public static final RegistryObject<Item> BIRCH_TURTLE_BOAT = createBoatItem(BIRCH_TURTLE, "birch_turtle_boat");
+    public static final RegistryObject<Item> DARK_OAK_TURTLE_BOAT = createBoatItem(DARK_OAK_TURTLE, "dark_oak_turtle_boat");
+    public static final RegistryObject<Item> ACACIA_TURTLE_BOAT = createBoatItem(ACACIA_TURTLE, "acacia_turtle_boat");
+    public static final RegistryObject<Item> SPRUCE_TURTLE_BOAT = createBoatItem(SPRUCE_TURTLE, "spruce_turtle_boat");
+    public static final RegistryObject<Item> JUNGLE_TURTLE_BOAT = createBoatItem(JUNGLE_TURTLE, "jungle_turtle_boat");
 
     public static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block){
         return REGISTRAR.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(TAB)));
@@ -74,6 +86,10 @@ public class UVItems {
 
     public static RegistryObject<Item> createItem(String id){
         return REGISTRAR.register(id, () -> new Item(new Item.Properties().tab(TAB)));
+    }
+
+    public static RegistryObject<Item> createBoatItem(TurtleBoat.ModType type, String id){
+        return REGISTRAR.register(id, () -> new TurtleBoatItem(type, new Item.Properties().tab(TAB).stacksTo(1)));
     }
 
     public static RegistryObject<Item> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot){
