@@ -14,6 +14,9 @@ import java.util.function.Supplier;
 public enum UVArmors implements ArmorMaterial {
     COPPER(UsefulVanilla.MOD_ID + ":copper",15, new int[]{2, 5, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_GOLD, 1.0F, 0.1F, () -> {
         return Ingredient.of(Items.COPPER_INGOT);
+    }),
+    TRAVELERS(UsefulVanilla.MOD_ID + ":travelers",15, new int[]{2, 5, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_GOLD, 1.0F, 0.0F, () -> {
+        return Ingredient.of(Items.RABBIT_FOOT);
     });
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

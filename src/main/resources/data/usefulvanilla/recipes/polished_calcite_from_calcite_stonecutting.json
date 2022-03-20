@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "usefulvanilla:calcite"
+  },
+  "result": "usefulvanilla:polished_calcite",
+  "count": 1
+}

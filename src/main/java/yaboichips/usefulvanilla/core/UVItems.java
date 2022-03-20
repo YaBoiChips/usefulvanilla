@@ -1,8 +1,6 @@
 package yaboichips.usefulvanilla.core;
 
-import ca.weblite.objc.Proxy;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import yaboichips.usefulvanilla.UsefulVanilla;
 import yaboichips.usefulvanilla.common.entities.TurtleBoat;
 import yaboichips.usefulvanilla.common.items.ThrowableDragonsBreath;
+import yaboichips.usefulvanilla.common.items.TravelersBoots;
 import yaboichips.usefulvanilla.common.items.TurtleBoatItem;
 
 import static yaboichips.usefulvanilla.common.entities.TurtleBoat.ModType.*;
@@ -36,7 +35,7 @@ public class UVItems {
     public static final RegistryObject<Item> POLISHED_TUFF_WALL = createBlockItem("polished_tuff_wall", UVBlocks.POLISHED_TUFF_WALL);
     public static final RegistryObject<Item> TUFF_BRICKS = createBlockItem("tuff_bricks", UVBlocks.TUFF_BRICKS);
     public static final RegistryObject<Item> TUFF_BRICK_SLAB = createBlockItem("tuff_brick_slab", UVBlocks.TUFF_BRICK_SLAB);
-    public static final RegistryObject<Item> TUFF_BRICK_STAIRS = createBlockItem("tuff_brick_stair", UVBlocks.TUFF_BRICK_STAIRS);
+    public static final RegistryObject<Item> TUFF_BRICK_STAIRS = createBlockItem("tuff_brick_stairs", UVBlocks.TUFF_BRICK_STAIRS);
     public static final RegistryObject<Item> TUFF_BRICK_WALL = createBlockItem("tuff_brick_wall", UVBlocks.TUFF_BRICK_WALL);
 
 
@@ -66,7 +65,6 @@ public class UVItems {
 
     public static final RegistryObject<Item> HORSE_BONE = REGISTRAR.register("horse_bone", () -> new Item(new Item.Properties().tab(TAB).craftRemainder(Items.BONE)));
     public static final RegistryObject<Item> FOX_FUR = createItem("fox_fur");
-    public static final RegistryObject<Item> TALLOW = createItem("tallow");
     public static final RegistryObject<Item> LLAMA_SPIT = createItem("llama_spit");
     public static final RegistryObject<Item> THROWABLE_DRAGONS_BREATH = REGISTRAR.register("throwable_dragons_breath", () -> new ThrowableDragonsBreath(new Item.Properties().tab(TAB)));
 
@@ -79,6 +77,7 @@ public class UVItems {
     public static final RegistryObject<Item> ACACIA_TURTLE_BOAT = createBoatItem(ACACIA_TURTLE, "acacia_turtle_boat");
     public static final RegistryObject<Item> SPRUCE_TURTLE_BOAT = createBoatItem(SPRUCE_TURTLE, "spruce_turtle_boat");
     public static final RegistryObject<Item> JUNGLE_TURTLE_BOAT = createBoatItem(JUNGLE_TURTLE, "jungle_turtle_boat");
+    public static final RegistryObject<Item> TRAVELERS_BOOTS = REGISTRAR.register("travelers_boots", () -> new TravelersBoots(UVArmors.TRAVELERS, EquipmentSlot.FEET, new Item.Properties().tab(TAB)));
 
     public static RegistryObject<Item> createBlockItem(String id, RegistryObject<Block> block){
         return REGISTRAR.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(TAB)));

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "usefulvanilla:raw_goat"
+  },
+  "result": "usefulvanilla:cooked_goat",
+  "experience": 0.35,
+  "cookingtime": 200
+}

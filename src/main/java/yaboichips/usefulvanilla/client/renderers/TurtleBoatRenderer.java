@@ -66,9 +66,10 @@ public class TurtleBoatRenderer extends EntityRenderer<TurtleBoat> {
             matrixStackIn.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), boat.getBubbleAngle(partialTicks), true));
         }
 
-        Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBoatType());
+        Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getModBoatType());
         ResourceLocation resourceLocation = pair.getFirst();
-        BoatModel boatModel = pair.getSecond();        matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
+        BoatModel boatModel = pair.getSecond();
+        matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(90.0F));
         boatModel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexConsumer = multiBufferSource.getBuffer(boatModel.renderType(resourceLocation));

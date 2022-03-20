@@ -44,6 +44,23 @@ public class TurtleBoat extends Boat {
         };
     }
 
+    public ModType getTypeFromVanilla(Type type){
+        return switch (type) {
+            default -> ModType.OAK_TURTLE;
+            case BIRCH -> ModType.BIRCH_TURTLE;
+            case ACACIA -> ModType.ACACIA_TURTLE;
+            case JUNGLE -> ModType.JUNGLE_TURTLE;
+            case SPRUCE -> ModType.SPRUCE_TURTLE;
+            case DARK_OAK -> ModType.DARK_OAK_TURTLE;
+        };
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        this.floatBoat();
+    }
+
     @Override
     public void controlBoat() {
         if (this.isVehicle()) {
@@ -57,16 +74,16 @@ public class TurtleBoat extends Boat {
             }
 
             if (this.inputRight != this.inputLeft && !this.inputUp && !this.inputDown) {
-                f += 0.01F;
+                f += 0.02F;
             }
 
             this.setYRot(this.getYRot() + this.deltaRotation);
             if (this.inputUp) {
-                f += 0.08F;
+                f += 0.1F;
             }
 
             if (this.inputDown) {
-                f -= 0.01F;
+                f -= 0.02F;
             }
 
             this.setDeltaMovement(this.getDeltaMovement().add(Mth.sin(-this.getYRot() * ((float) Math.PI / 180F)) * f, 0.0D, Mth.cos(this.getYRot() * ((float) Math.PI / 180F)) * f));
@@ -115,9 +132,9 @@ public class TurtleBoat extends Boat {
 
     public enum ModType {
         OAK_TURTLE("oak_turtle"),
-        SPRUCE_TURTLE("oak_turtle"),
-        BIRCH_TURTLE("oak_turtle"),
-        DARK_OAK_TURTLE("oak_turtle"),
+        SPRUCE_TURTLE("spruce_turtle"),
+        BIRCH_TURTLE("birch_turtle"),
+        DARK_OAK_TURTLE("dark_oak_turtle"),
         JUNGLE_TURTLE("jungle_turtle"),
         ACACIA_TURTLE("acacia_turtle");
 

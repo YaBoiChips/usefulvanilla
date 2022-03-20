@@ -6,11 +6,14 @@
   "refmap": "usefulvanilla.refmap.json",
   "mixins": [
     "access.BoatEntityAccess",
+    "access.RecipeManagerAccess",
     "access.StairBlockAccess",
-    "common.MixinBottleItem"
+    "common.MixinBottleItem",
+    "common.MixinThrownPotion"
   ],
   "client": [
-    "common.MixinEntityRenderers"
+    "common.MixinEntityRenderers",
+    "common.MixinLayerDefinitions"
   ],
   "injectors": {
     "defaultRequire": 1

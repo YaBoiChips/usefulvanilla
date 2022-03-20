@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "usefulvanilla:block/tuff_brick"
+    "wall": "usefulvanilla:block/tuff_bricks"
   }
 }

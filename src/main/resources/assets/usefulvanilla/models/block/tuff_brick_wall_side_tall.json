@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "usefulvanilla:block/tuff_brick"
+    "wall": "usefulvanilla:block/tuff_bricks"
   }
 }

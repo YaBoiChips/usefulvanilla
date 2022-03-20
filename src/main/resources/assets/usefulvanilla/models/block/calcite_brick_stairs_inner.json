@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "usefulvanilla:block/calcite_brick",
-    "top": "usefulvanilla:block/calcite_brick",
-    "side": "usefulvanilla:block/calcite_brick"
+    "bottom": "usefulvanilla:block/calcite_bricks",
+    "top": "usefulvanilla:block/calcite_bricks",
+    "side": "usefulvanilla:block/calcite_bricks"
   }
 }

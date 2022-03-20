@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "usefulvanilla:copper_hopper",
+    "usefulvanilla:mason_oven",
+    "usefulvanilla:copper_chain",
+    "usefulvanilla:amethyst_lantern",
+    "usefulvanilla:amethyst_end_rod",
+    "usefulvanilla:tuff_slab",
+    "usefulvanilla:tuff_stairs",
+    "usefulvanilla:tuff_wall",
+    "usefulvanilla:polished_tuff",
+    "usefulvanilla:polished_tuff_slab",
+    "usefulvanilla:polished_tuff_stairs",
+    "usefulvanilla:polished_tuff_wall",
+    "usefulvanilla:tuff_bricks",
+    "usefulvanilla:tuff_brick_slab",
+    "usefulvanilla:tuff_brick_stairs",
+    "usefulvanilla:tuff_brick_wall",
+    "usefulvanilla:calcite_slab",
+    "usefulvanilla:calcite_stairs",
+    "usefulvanilla:calcite_wall",
+    "usefulvanilla:polished_calcite",
+    "usefulvanilla:polished_calcite_slab",
+    "usefulvanilla:polished_calcite_stairs",
+    "usefulvanilla:polished_calcite_wall",
+    "usefulvanilla:calcite_bricks",
+    "usefulvanilla:calcite_brick_slab",
+    "usefulvanilla:calcite_brick_stairs",
+    "usefulvanilla:calcite_brick_wall"
+  ]
+}

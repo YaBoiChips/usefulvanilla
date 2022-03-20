@@ -1,26 +1,20 @@
 package yaboichips.usefulvanilla.core;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import yaboichips.usefulvanilla.UsefulVanilla;
 import yaboichips.usefulvanilla.common.MasonRecipe;
+import yaboichips.usefulvanilla.mixin.access.RecipeManagerAccess;
 
-import java.util.Optional;
+import java.util.Map;
 
 public class UVRecipeTypes {
     public static RecipeType<MasonRecipe> MASON = null;
-//    public static final RecipeType<MasonRecipe> MASON_RECIPE = new RecipeType<MasonRecipe>() {
-//        @Override
-//        public <C extends Container> Optional<MasonRecipe> tryMatch(Recipe<C> recipe, Level worldIn, C inv) {
-//            return recipe.matches(inv, worldIn) ? Optional.of((MasonRecipe) recipe) : Optional.empty();
-//        }
-//    };
-//
-//    static {
-//        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(UsefulVanilla.MOD_ID, "mason"), MASON_RECIPE);
-//    }
+
+
+    public static <C extends Container, T extends Recipe<C>> Map<ResourceLocation, Recipe<C>> getRecipes(Level world, RecipeType<T> type) {
+        return ((RecipeManagerAccess) world.getRecipeManager()).getUVRecipes(type);
+    }
 }

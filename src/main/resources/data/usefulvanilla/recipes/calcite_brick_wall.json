@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "usefulvanilla:calcite_bricks"
+    }
+  },
+  "result": {
+    "item": "usefulvanilla:calcite_brick_wall",
+    "count": 6
+  }
+}

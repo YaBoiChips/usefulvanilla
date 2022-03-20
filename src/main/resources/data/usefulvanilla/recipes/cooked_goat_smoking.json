@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "usefulvanilla:raw_goat"
+  },
+  "result": "usefulvanilla:cooked_goat",
+  "experience": 0.35,
+  "cookingtime": 100
+}

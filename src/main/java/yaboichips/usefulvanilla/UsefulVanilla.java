@@ -1,7 +1,6 @@
 package yaboichips.usefulvanilla;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,18 +12,19 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -33,8 +33,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yaboichips.usefulvanilla.client.renderers.TurtleBoatRenderer;
@@ -70,12 +71,11 @@ public class UsefulVanilla {
     }
 
     private void doClientThings(final FMLClientSetupEvent event) {
-        System.out.println("doing client things");
         UVCutoutRenders.renderCutOuts();
         MenuScreens.register(UVMenus.MASON_OVEN, MasonScreen::new);
     }
 
-    public void registerRenderers(EntityRenderersEvent.RegisterRenderers e){
+    public void registerRenderers(EntityRenderersEvent.RegisterRenderers e) {
         e.registerEntityRenderer(UVEntities.TURTLE_BOAT.get(), TurtleBoatRenderer::new);
     }
 
@@ -124,6 +124,7 @@ public class UsefulVanilla {
             if (stack.getItem() == Items.SCUTE) {
                 Level world = boat.level;
                 TurtleBoat turtleBoat = new TurtleBoat(world, boat.getX(), boat.getY(), boat.getZ());
+                turtleBoat.setModBoatType(turtleBoat.getTypeFromVanilla(boat.getBoatType()));
                 turtleBoat.setYRot(boat.getYRot());
                 world.addFreshEntity(turtleBoat);
                 boat.remove(Entity.RemovalReason.DISCARDED);
@@ -141,10 +142,6 @@ public class UsefulVanilla {
         return new ResourceLocation(MOD_ID, path);
     }
 
-    /*
-    llama
-    foxes?
-     */
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {

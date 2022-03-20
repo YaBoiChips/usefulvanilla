@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "FLF",
+    "S S"
+  ],
+  "key": {
+    "#": {
+      "item": "usefulvanilla:fox_fur"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "L": {
+      "item": "minecraft:leather_boots"
+    },
+    "S": {
+      "item": "minecraft:rabbit_foot"
+    }
+  },
+  "result": {
+    "item": "usefulvanilla:travelers_boots",
+    "count": 1
+  }
+}

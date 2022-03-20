@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "usefulvanilla:block/calcite_brick"
+    "wall": "usefulvanilla:block/calcite_bricks"
   }
 }

@@ -29,7 +29,7 @@ public class UVBlocks {
     public static final RegistryObject<Block> POLISHED_TUFF_SLAB = REGISTRAR.register("polished_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<Block> POLISHED_TUFF_STAIRS = REGISTRAR.register("polished_tuff_stairs", () -> StairBlockAccess.create(POLISHED_TUFF.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<Block> POLISHED_TUFF_WALL = REGISTRAR.register("polished_tuff_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
-    public static final RegistryObject<Block> TUFF_BRICKS = REGISTRAR.register("tuff_brick", () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<Block> TUFF_BRICKS = REGISTRAR.register("tuff_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<Block> TUFF_BRICK_SLAB = REGISTRAR.register("tuff_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<Block> TUFF_BRICK_STAIRS = REGISTRAR.register("tuff_brick_stairs", () -> StairBlockAccess.create(TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<Block> TUFF_BRICK_WALL = REGISTRAR.register("tuff_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
@@ -41,7 +41,7 @@ public class UVBlocks {
     public static final RegistryObject<Block> POLISHED_CALCITE_SLAB = REGISTRAR.register("polished_calcite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final RegistryObject<Block> POLISHED_CALCITE_STAIRS = REGISTRAR.register("polished_calcite_stairs", () -> StairBlockAccess.create(POLISHED_CALCITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final RegistryObject<Block> POLISHED_CALCITE_WALL = REGISTRAR.register("polished_calcite_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
-    public static final RegistryObject<Block> CALCITE_BRICKS = REGISTRAR.register("calcite_brick", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+    public static final RegistryObject<Block> CALCITE_BRICKS = REGISTRAR.register("calcite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_BRICK_SLAB = REGISTRAR.register("calcite_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_BRICK_STAIRS = REGISTRAR.register("calcite_brick_stairs", () -> StairBlockAccess.create(CALCITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_BRICK_WALL = REGISTRAR.register("calcite_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)));

@@ -13,6 +13,6 @@ public class UVEntities {
     public static final DeferredRegister<EntityType<?>> REGISTRAR =  DeferredRegister.create(ForgeRegistries.ENTITIES, UsefulVanilla.MOD_ID);
 
     public static final RegistryObject<EntityType<DragonsBreathEntity>> DRAGON_BREATH = REGISTRAR.register("dragons_breath_entity", () -> EntityType.Builder.<DragonsBreathEntity>of(DragonsBreathEntity::new, MobCategory.AMBIENT).build("dragons_breath_entity"));
-    public static final RegistryObject<EntityType<TurtleBoat>> TURTLE_BOAT = REGISTRAR.register("turtle_boat", () -> EntityType.Builder.<TurtleBoat>of(TurtleBoat::new, MobCategory.AMBIENT).build("turtle_boat"));
+    public static final RegistryObject<EntityType<TurtleBoat>> TURTLE_BOAT = REGISTRAR.register("turtle_boat", () -> EntityType.Builder.<TurtleBoat>of(TurtleBoat::new, MobCategory.AMBIENT).sized(1.375F, 0.5625F).clientTrackingRange(10).build("turtle_boat"));
 
 }

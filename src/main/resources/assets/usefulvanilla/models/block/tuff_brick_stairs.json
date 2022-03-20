@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "bottom": "usefulvanilla:block/tuff_brick",
-    "top": "usefulvanilla:block/tuff_brick",
-    "side": "usefulvanilla:block/tuff_brick"
+    "bottom": "usefulvanilla:block/tuff_bricks",
+    "top": "usefulvanilla:block/tuff_bricks",
+    "side": "usefulvanilla:block/tuff_bricks"
   }
 }
