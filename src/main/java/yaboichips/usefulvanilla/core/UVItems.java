@@ -88,7 +88,7 @@ public class UVItems {
     }
 
     public static RegistryObject<Item> createBoatItem(TurtleBoat.ModType type, String id){
-        return REGISTRAR.register(id, () -> new TurtleBoatItem(type, new Item.Properties().tab(TAB).stacksTo(1)));
+        return REGISTRAR.register(id, () -> new TurtleBoatItem(type, new Item.Properties().stacksTo(1)));
     }
 
     public static RegistryObject<Item> createArmorItem(String id, ArmorMaterial material, EquipmentSlot slot){

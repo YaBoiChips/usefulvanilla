@@ -8,8 +8,11 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Llama;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
@@ -95,6 +98,30 @@ public class UsefulVanilla {
         LOGGER.info("Got IMC {}", event.getIMCStream().
                 map(m -> m.messageSupplier().get()).
                 collect(Collectors.toList()));
+    }
+
+    @SubscribeEvent
+    public void makeZombieVillager(PlayerInteractEvent.EntityInteract event) {
+        Player player = event.getPlayer();
+        if (event.getTarget() instanceof Zombie zombie) {
+            ItemStack stack = player.getMainHandItem();
+            if (stack.getItem() == Items.POISONOUS_POTATO) {
+                Level world = player.level;
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
+                world.playSound(null, zombie, SoundEvents.GENERIC_EAT, SoundSource.AMBIENT, 1 ,1);
+                int i = player.getRandom().nextInt(5);
+                if (i == 3) {
+                    ZombieVillager zv = EntityType.ZOMBIE_VILLAGER.create(world);
+                    zv.setPos(zombie.position());
+                    zv.setBaby(zombie.isBaby());
+                    world.playSound(null, zombie, SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.AMBIENT, 1 ,1);
+                    world.addFreshEntity(zv);
+                    zombie.remove(Entity.RemovalReason.DISCARDED);
+                }
+            }
+        }
     }
 
     @SubscribeEvent

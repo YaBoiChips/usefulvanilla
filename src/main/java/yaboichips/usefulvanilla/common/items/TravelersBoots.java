@@ -18,17 +18,15 @@ public class TravelersBoots extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if (player.getItemBySlot(EquipmentSlot.FEET) == stack) {
             Abilities abilities = player.getAbilities();
-            if (stack.getDamageValue() > 2) {
-                if (player.isSprinting()) {
-                    player.maxUpStep = 1.0f;
-                    abilities.setWalkingSpeed(abilities.getWalkingSpeed() / 2);
-                }
+            if (player.isSprinting()) {
+                player.maxUpStep = 1.0f;
+                abilities.setWalkingSpeed(abilities.getWalkingSpeed() * 0.5F);
             }
             if (!player.isSprinting()) {
                 player.maxUpStep = 0.6f;
                 abilities.setWalkingSpeed(0.1F);
             }
+            super.onArmorTick(stack, level, player);
         }
-        super.onArmorTick(stack, level, player);
     }
 }

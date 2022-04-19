@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import yaboichips.usefulvanilla.core.UVEntities;
@@ -35,12 +36,12 @@ public class TurtleBoat extends Boat {
     @Override
     public Item getDropItem() {
         return switch (this.getModBoatType()) {
-            default -> UVItems.OAK_TURTLE_BOAT.get();
-            case BIRCH_TURTLE -> UVItems.BIRCH_TURTLE_BOAT.get();
-            case ACACIA_TURTLE -> UVItems.ACACIA_TURTLE_BOAT.get();
-            case JUNGLE_TURTLE -> UVItems.JUNGLE_TURTLE_BOAT.get();
-            case SPRUCE_TURTLE -> UVItems.SPRUCE_TURTLE_BOAT.get();
-            case DARK_OAK_TURTLE -> UVItems.DARK_OAK_TURTLE_BOAT.get();
+            default -> Items.OAK_BOAT;
+            case BIRCH_TURTLE -> Items.BIRCH_BOAT;
+            case ACACIA_TURTLE -> Items.ACACIA_BOAT;
+            case JUNGLE_TURTLE -> Items.JUNGLE_BOAT;
+            case SPRUCE_TURTLE -> Items.SPRUCE_BOAT;
+            case DARK_OAK_TURTLE -> Items.DARK_OAK_BOAT;
         };
     }
 

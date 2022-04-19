@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "usefulvanilla:block/polished_tuff",
+    "particle": "usefulvanilla:block/polished_tuff"
+  }
+}
